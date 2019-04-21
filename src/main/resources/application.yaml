@@ -1,8 +1,3 @@
-server:
-  port: 8080
-spring:
-  application:
-    name: api-gateway
 eureka:
   instance:
     prefer-ip-address: true
@@ -24,6 +19,10 @@ zuul:
     # config-server: /config/**
     # auth-service: /auth/**
     order-service: /api/order/**
+    # static example
+    static-service:
+      path: /api/hello/**
+      url: https://google.com
   # ignores automatically created routes
   ignored-services:
     - config-server
