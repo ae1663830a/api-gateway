@@ -11,3 +11,20 @@ eureka:
     fetch-registry: true
     service-url:
       defaultZone: http://localhost:8761/eureka
+# actuator config
+management:
+  endpoints:
+    web:
+      base-path: /management
+      exposure:
+        include: '*'
+zuul:
+  # manually defined routes
+  routes:
+    # config-server: /config/**
+    # auth-service: /auth/**
+    order-service: /api/order/**
+  # ignores automatically created routes
+  ignored-services:
+    - config-server
+    - order-service
